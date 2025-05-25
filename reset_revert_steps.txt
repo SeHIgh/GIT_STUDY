@@ -1,0 +1,34 @@
+1) touch reset_test.txt
+2) echo "커밋을 되돌려보는 실습을 진행 중입니다. (1)" >> reset_test.txt
+3) git add .
+4) git commit -m "reset_test 1"
+5) echo "커밋을 되돌려보는 실습을 진행 중입니다. (2)" >> reset_test.txt
+6) git add .
+7) git commit -m "reset_test 2"
+8) echo "커밋을 되돌려보는 실습을 진행 중입니다. (3)" >> reset_test.txt
+6) git add .
+7) git commit -m "reset_test 3"
+8) git log --oneline
+8-1) 결과
+940f3bc (HEAD -> main) reset_test 3
+ec6cbaa reset_test 2
+d74fec0 reset_test 1
+
+10) git reset --hard ec6cbaa
+(두번째 커밋ID 를 넣었음)
+10-1) git log --oneline
+10-2) 결과
+ec6cbaa (HEAD -> main) reset_test 2
+d74fec0 reset_test 1
+
+11) git revert ec6cbaa
+(두번째 커밋ID 를 넣었음)
+11-1) git log --oneline
+11-2) 결과
+0caaed5 (HEAD -> main) Revert "reset_test 2"
+ec6cbaa reset_test 2
+d74fec0 reset_test 1
+
+reset_revert_steps.txt 내용
+커밋을 되돌려보는 실습을 진행 중입니다. (1)
+
