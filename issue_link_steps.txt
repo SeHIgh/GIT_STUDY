@@ -1,0 +1,7 @@
+# issue_link_steps.txt 예시
+1) touch issue_test.txt
+2) echo "이슈 연동 실습 중입니다." >> issue_test.txt
+3) git add .
+4) git commit -m "docs: issue_test.txt 최초 내용 추가"
+5) echo "이슈 연동 실습 중입니다.(2)" >> issue_test.txt
+6) git commit -am "fix: #1 issue_text.txt 내용 수정"
