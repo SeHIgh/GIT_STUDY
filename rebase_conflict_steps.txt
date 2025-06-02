@@ -1,0 +1,25 @@
+# rebase_conflict_steps.txt
+1) git checkout main
+2) echo "안녕하세요, 여기는 main 브랜치입니다!" > conflict_test.txt
+3) git add .
+4) git commit -m "add: conflict_test.txt 파일 수정"
+5) git checkout -b feature
+6) echo "반갑습니다, 여기는 feature 브랜치입니다!" > conflict_test.txt
+7) git add .
+8) git commit -m "add: conflict_test.txt 파일 업로드"
+9) git checkout feature
+10) git rebase main
+# 충돌 발생 -> conflict_test.txt 수정
+(두 파일 내용을 합침!)
+안녕하세요, 여기는 main 브랜치입니다!
+반갑습니다, 여기는 feature 브랜치입니다!
+
+11) git add conflict_test.txt
+12) git rebase --continue
+13) git log --oneline
+38d5dfe (HEAD -> feature) add: conflict_test.txt 파일 업로드
+e0f7b41 (main) add: conflict_test.txt 파일 수정
+
+14) cat conflict_test.txt
+안녕하세요, 여기는 main 브랜치입니다!
+반갑습니다, 여기는 feature 브랜치입니다!
